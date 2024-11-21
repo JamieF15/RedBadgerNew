@@ -1,25 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-using System.Runtime.CompilerServices;
-
-namespace RedBadgerForms
+﻿namespace RedBadgerForms
 {
     internal class Robot
     {
         char orientation;
         private Point coordinates;
         private Point lastCoordinate;
+        private bool isLost;
         public Robot(char orientation, Point coordinates)
         {
             this.orientation = orientation;
             this.coordinates = coordinates;
             lastCoordinate = coordinates;
+            isLost = false;
         }
 
+        public void SetisLost(bool isLost)
+        {
+            this.isLost = isLost;
+        }
+
+        public bool GetIsLost()
+        {
+            return isLost;
+        }
         public char GetOrientation()
         {
             return orientation;
@@ -44,13 +47,50 @@ namespace RedBadgerForms
 
         public void MoveLeft()
         {
-            this.lastCoordinate = coordinates;
+            switch (orientation.ToString().ToUpper())
+            {
+                case "N":
+                    SetOrientation('W');
+                    break;
+
+                case "E":
+                    SetOrientation('N');
+
+                    break;
+                case "S":
+                    SetOrientation('E');
+
+                    break;
+                case "W":
+                    SetOrientation('S');
+
+                    break;
+            }
         }
 
         public void MoveRight()
         {
-            this.lastCoordinate = coordinates;
+            switch (orientation.ToString().ToUpper())
+            {
+                case "N":
+                    SetOrientation('E');
+                    break;
+
+                case "E":
+                    SetOrientation('S');
+
+                    break;
+                case "S":
+                    SetOrientation('W');
+
+                    break;
+                case "W":
+                    SetOrientation('N');
+
+                    break;
+            }
         }
+
         public void MoveForward()
         {
             Point nextCoordinate;
@@ -101,7 +141,7 @@ namespace RedBadgerForms
                         }
                         break;
                     }
-                    Grid.gridElements[coordinates.X - 1, coordinates.Y].SetRobotInElement(this);
+                    Grid.gridElements[nextCoordinate.X, nextCoordinate.Y].SetRobotInElement(this);
                     Grid.gridElements[coordinates.X, coordinates.Y].BackgroundImage = null;
                     this.SetCoordinates(nextCoordinate);
                     break;
@@ -117,7 +157,7 @@ namespace RedBadgerForms
                         }
                         break;
                     }
-                    Grid.gridElements[coordinates.X, coordinates.Y - 1].SetRobotInElement(this);
+                    Grid.gridElements[nextCoordinate.X, nextCoordinate.Y].SetRobotInElement(this);
                     Grid.gridElements[coordinates.X, coordinates.Y].BackgroundImage = null;
                     this.SetCoordinates(nextCoordinate);
                     break;
@@ -128,6 +168,7 @@ namespace RedBadgerForms
             Grid.gridElements[x, y].BackgroundImage = null;
             Grid.gridElements[x, y].BackColor = Color.Green;
             Grid.gridElements[x, y].SetHasScent(true);
+            this.SetisLost(true);
         }
     }
 }

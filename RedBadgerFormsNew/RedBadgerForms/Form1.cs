@@ -32,10 +32,22 @@ namespace RedBadgerForms
             }
         }
 
+        bool GridExists()
+        {
+            return Grid.gridElements != null;
+        }
+
         private void GenerateRobotButton_Click(object sender, EventArgs e)
         {
+            if (!GridExists())
+            {
+                return;
+            }
+
             int x = int.Parse(RobotXCoordinateTextBox.Text);
             int y = int.Parse(RobotYCoordinateTextBox.Text);
+
+         
             char robotOrientation = Char.Parse(RobotOrientationTextBox.Text);
             Robot robot = new Robot(robotOrientation, new Point(x, y));
             Grid.gridElements[x, y].SetRobotInElement(robot);
@@ -43,11 +55,17 @@ namespace RedBadgerForms
 
         private void SendCommandButton_Click(object sender, EventArgs e)
         {
+            if (!GridExists())
+            {
+                return;
+            }
+
             int x = int.Parse(RobotXCoordinateTextBox.Text);
             int y = int.Parse(RobotYCoordinateTextBox.Text);
            
             string command = sendCommandTextBox.Text;
-            CommandProcessor.ProcessCommand(command, Grid.gridElements[x, y].getRobotInElement());
+            CommandProcessor.ProcessCommand(command, Grid.gridElements[x, y].getRobotInElement(), 
+                    FinalCoordinatesTextBox, FinalOrientationTextBox);
         }
     }
 }

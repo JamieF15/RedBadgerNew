@@ -44,6 +44,10 @@
             textBox5 = new TextBox();
             RobotOrientationTextBox = new TextBox();
             button3 = new Button();
+            FinalOrientationTextBox = new TextBox();
+            FinalCoordinatesTextBox = new TextBox();
+            textBox3 = new TextBox();
+            textBox4 = new TextBox();
             SuspendLayout();
             // 
             // maxYCoordinateTextBox
@@ -139,10 +143,36 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += SendCommandButton_Click;
             // 
+            // FinalOrientationTextBox
+            // 
+            resources.ApplyResources(FinalOrientationTextBox, "FinalOrientationTextBox");
+            FinalOrientationTextBox.Name = "FinalOrientationTextBox";
+            // 
+            // FinalCoordinatesTextBox
+            // 
+            resources.ApplyResources(FinalCoordinatesTextBox, "FinalCoordinatesTextBox");
+            FinalCoordinatesTextBox.Name = "FinalCoordinatesTextBox";
+            // 
+            // textBox3
+            // 
+            textBox3.BorderStyle = BorderStyle.FixedSingle;
+            resources.ApplyResources(textBox3, "textBox3");
+            textBox3.Name = "textBox3";
+            // 
+            // textBox4
+            // 
+            textBox4.BorderStyle = BorderStyle.FixedSingle;
+            resources.ApplyResources(textBox4, "textBox4");
+            textBox4.Name = "textBox4";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(FinalOrientationTextBox);
+            Controls.Add(FinalCoordinatesTextBox);
+            Controls.Add(textBox3);
+            Controls.Add(textBox4);
             Controls.Add(button3);
             Controls.Add(textBox5);
             Controls.Add(RobotOrientationTextBox);
@@ -182,5 +212,9 @@
         private TextBox textBox5;
         private TextBox RobotOrientationTextBox;
         private Button button3;
+        private TextBox FinalOrientationTextBox;
+        private TextBox FinalCoordinatesTextBox;
+        private TextBox textBox3;
+        private TextBox textBox4;
     }
 }

@@ -2,11 +2,16 @@
 {
     internal class CommandProcessor
     {
-        public static void ProcessCommand(string command, Robot robot)
+        public static void ProcessCommand(string command, Robot robot, TextBox finalCoordinates, TextBox finalOrientation)
         {
-            for (int i = 0; i < command.Length; i++)
+            if (robot.GetIsLost())
             {
-                switch(command[i].ToString().ToUpper()) {
+                return;
+            }
+
+                for (int i = 0; i < command.Length; i++)
+            {
+                switch (command[i].ToString().ToUpper()) {
                     case "N":
                         robot.SetOrientation(command[i]);
                         continue;
@@ -30,6 +35,17 @@
                         continue;
                 }
             }
+
+            if (robot.GetIsLost())
+            {
+                finalCoordinates.Text = robot.GetCoordinates().X + ", " + robot.GetCoordinates().Y + " LOST";
+                finalOrientation.Text = robot.GetOrientation().ToString().ToUpper();
+
+                return;
+            }
+
+            finalCoordinates.Text = robot.GetCoordinates().X + ", " + robot.GetCoordinates().Y;
+            finalOrientation.Text = robot.GetOrientation().ToString().ToUpper();
         }
     }
 }
