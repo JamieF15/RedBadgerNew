@@ -26,8 +26,22 @@
         public void SetRobotInElement(Robot robot)
         {
             robotInElement = robot;
-            BackgroundImage = Image.FromFile(@"C:\Users\Jamie\Desktop\RedBadgerForms\RedBadgerForms\bin\Debug\net8.0-windows\arrow"
-                + robotInElement.GetOrientation().ToString().ToUpper() + ".png");
+
+            switch (robotInElement.GetOrientation().ToString().ToUpper())
+            {
+                case "N":
+                    BackgroundImage = Resource1.arrowN;
+                    break;
+                case "E":
+                    BackgroundImage = Resource1.arrowE;
+                    break;
+                case "S":
+                    BackgroundImage = Resource1.arrowS;
+                    break;
+                case "W":
+                    BackgroundImage = Resource1.arrowW;
+                    break;
+            }
         } 
 
         public Robot getRobotInElement()

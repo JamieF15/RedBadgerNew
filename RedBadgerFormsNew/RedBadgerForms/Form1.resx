@@ -472,7 +472,7 @@
     <value>918, 895</value>
   </data>
   <data name="FinalOrientationTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 23</value>
+    <value>68, 23</value>
   </data>
   <data name="FinalOrientationTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -493,7 +493,7 @@
     <value>918, 866</value>
   </data>
   <data name="FinalCoordinatesTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 23</value>
+    <value>68, 23</value>
   </data>
   <data name="FinalCoordinatesTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>

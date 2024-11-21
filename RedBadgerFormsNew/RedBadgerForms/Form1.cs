@@ -50,6 +50,14 @@ namespace RedBadgerForms
          
             char robotOrientation = Char.Parse(RobotOrientationTextBox.Text);
             Robot robot = new Robot(robotOrientation, new Point(x, y));
+            if (x > int.Parse(maxXCoordinateTextBox.Text) -1 ||
+                y > int.Parse(maxYCoordinateTextBox.Text) -1)
+               
+            {
+                FinalCoordinatesTextBox.Text = robot.GetCoordinates().X + ", " + robot.GetCoordinates().Y + " LOST";
+                FinalOrientationTextBox.Text = robot.GetOrientation().ToString().ToUpper();
+                return;
+            }
             Grid.gridElements[x, y].SetRobotInElement(robot);
         }
 

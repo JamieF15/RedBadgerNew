@@ -9,7 +9,7 @@
                 return;
             }
 
-                for (int i = 0; i < command.Length; i++)
+            for (int i = 0; i < command.Length; i++)
             {
                 switch (command[i].ToString().ToUpper()) {
                     case "N":
@@ -40,7 +40,7 @@
             {
                 finalCoordinates.Text = robot.GetCoordinates().X + ", " + robot.GetCoordinates().Y + " LOST";
                 finalOrientation.Text = robot.GetOrientation().ToString().ToUpper();
-
+                Grid.gridElements[robot.GetCoordinates().X, robot.GetCoordinates().Y].BackgroundImage = null;
                 return;
             }
 

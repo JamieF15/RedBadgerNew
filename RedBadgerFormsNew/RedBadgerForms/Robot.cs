@@ -31,8 +31,7 @@
         public void SetOrientation(char orientation)
         {
             this.orientation = orientation;
-            Grid.gridElements[GetCoordinates().X, GetCoordinates().Y].BackgroundImage =
-                                Image.FromFile(@"C:\Users\Jamie\Desktop\RedBadgerForms\RedBadgerForms\bin\Debug\net8.0-windows\arrow" + orientation + ".png");
+            Grid.gridElements[GetCoordinates().X, GetCoordinates().Y].SetRobotInElement(this);
         }
 
         public Point GetCoordinates()
