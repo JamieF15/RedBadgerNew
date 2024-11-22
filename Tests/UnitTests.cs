@@ -68,8 +68,6 @@ namespace Tests
             GridElement[,] gridElements = new GridElement[x, y];
             CreateTestGrid(gridElements, x, y);
 
-            gridElements[1, 1] = new GridElement(new Point(0, 0), new Size(new Point(50, 50)));
-
             Assert.IsNotNull(gridElements[1, 1]);
 
             Robot robot = new Robot('N', robotCoordinates);
@@ -97,8 +95,6 @@ namespace Tests
             GridElement[,] gridElements = new GridElement[x, y];
             CreateTestGrid(gridElements, x, y);
 
-            gridElements[1, 1] = new GridElement(new Point(0, 0), new Size(new Point(50, 50)));
-
             Assert.IsNotNull(gridElements[1, 1]);
 
             Robot robot = new Robot('N', startingRobotCoordinates);
@@ -125,8 +121,6 @@ namespace Tests
             GridElement[,] gridElements = new GridElement[x, y];
             CreateTestGrid(gridElements, x, y);
 
-            gridElements[1, 1] = new GridElement(new Point(0, 0), new Size(new Point(50, 50)));
-
             Assert.IsNotNull(gridElements[1, 1]);
 
             Robot robot = new Robot('N', robotCoordinates);
@@ -143,8 +137,6 @@ namespace Tests
 
             GridElement[,] gridElements = new GridElement[x, y];
             CreateTestGrid(gridElements, x, y);
-
-            gridElements[1, 1] = new GridElement(new Point(0, 0), new Size(new Point(50, 50)));
 
             Assert.IsNotNull(gridElements[1, 1]);
 
@@ -166,7 +158,6 @@ namespace Tests
             GridElement[,] gridElements = new GridElement[x, y];
             CreateTestGrid(gridElements, x, y);
 
-            gridElements[1, 1] = new GridElement(new Point(0, 0), new Size(new Point(50, 50)));
 
             Assert.IsNotNull(gridElements[1, 1]);
 
@@ -175,7 +166,6 @@ namespace Tests
             gridElements[1, 1].SetRobotInElement(robot);
             
             Assert.AreEqual( gridElements[1, 1].GetRobotInElement().GetCoordinates(), robotCoordinates);
-
         }
 
         [TestMethod]
@@ -185,8 +175,6 @@ namespace Tests
 
             GridElement[,] gridElements = new GridElement[x, y];
             CreateTestGrid(gridElements, x, y);
-
-            gridElements[1, 1] = new GridElement(new Point(0, 0), new Size(new Point(50, 50)));
 
             Assert.IsNotNull(gridElements[1, 1]);
 
@@ -206,8 +194,6 @@ namespace Tests
 
             GridElement[,] gridElements = new GridElement[x, y];
             CreateTestGrid(gridElements, x, y);
-
-            gridElements[1, 1] = new GridElement(new Point(0, 0), new Size(new Point(50, 50)));
 
             Assert.IsNotNull(gridElements[1, 1]);
 
