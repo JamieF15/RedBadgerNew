@@ -40,9 +40,10 @@
             {
                 finalCoordinates.Text = robot.GetCoordinates().X + ", " + robot.GetCoordinates().Y + " LOST";
                 finalOrientation.Text = robot.GetOrientation().ToString().ToUpper();
-                Grid.gridElements[robot.GetCoordinates().X, robot.GetCoordinates().Y].BackgroundImage = null;
+                Grid.GetGridElements()[robot.GetCoordinates().X, robot.GetCoordinates().Y].BackgroundImage = null;
                 return;
             }
+
 
             finalCoordinates.Text = robot.GetCoordinates().X + ", " + robot.GetCoordinates().Y;
             finalOrientation.Text = robot.GetOrientation().ToString().ToUpper();

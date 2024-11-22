@@ -1,6 +1,6 @@
 ﻿namespace RedBadgerForms
 {
-    internal class GridElement : PictureBox
+    public class GridElement : PictureBox
     {
         private bool hasScent = false;
         private Point coodinates;
@@ -44,7 +44,7 @@
             }
         } 
 
-        public Robot getRobotInElement()
+        public Robot GetRobotInElement()
         {
             return robotInElement;
         }

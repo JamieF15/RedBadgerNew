@@ -1,8 +1,10 @@
-﻿namespace RedBadgerForms
+﻿using System.Runtime.CompilerServices;
+
+namespace RedBadgerForms
 {
-    internal class Grid
+    public static class Grid
     {
-        public static GridElement[,] gridElements;
+        private static GridElement[,] gridElements;
 
         public static void Initiate(int x, int y, Form form)
         {
@@ -30,6 +32,16 @@
 
                 }
             }
+        }
+
+        public static GridElement[,] GetGridElements() { 
+
+            return gridElements;
+        }
+
+        public static void SetGridElements(GridElement[,] gridElementsNew)
+        {
+            gridElements = gridElementsNew;
         }
     }
 }
