@@ -1,5 +1,8 @@
 This is a program that follow the following requirements: 
 [Coding_Challenge_2018.pdf](https://github.com/user-attachments/files/17850156/Coding_Challenge_2018.pdf).
+
+This project was written in C# with unit testing done in MSTest as both the frameworks integrate well together and with the IDE I am using, Visual Studeo 2022.
+
 In this interpreation of the problem, the robot is denoted with an arrow, showing which direction it is oriented in.
 When a grid space has a 'scent', it is shown by the tile becoming green.
 
