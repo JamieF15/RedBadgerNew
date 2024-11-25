@@ -1,4 +1,5 @@
-This program follows the following requirements: Coding_Challenge_2018.pdf.
+This program follows the following requirements: [Coding_Challenge_2018.pdf](https://github.com/user-attachments/files/17903900/Coding_Challenge_2018.pdf)
+
 
 This project was written in C#, with unit testing done in MSTest, as both frameworks integrate well with the IDE I am using, Visual Studio 2022.
 
