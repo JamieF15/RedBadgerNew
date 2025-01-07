@@ -1,5 +1,3 @@
-using System.Windows.Forms;
-
 namespace RedBadgerForms
 {
     public partial class Window : Form
