@@ -21,6 +21,7 @@
         {
             return isLost;
         }
+
         public char GetOrientation()
         {
             return orientation;
