@@ -3,11 +3,10 @@
     public class GridElement : PictureBox
     {
         private bool hasScent = false;
-        private Point coodinates;
-        Robot robotInElement;
-        public GridElement(Point coodinates, Size size)
+        Robot robotInElement = default!;
+
+        public GridElement(Size size)
         {
-            this.coodinates = coodinates;
             BackColor = Color.Gray;
             BorderStyle = BorderStyle.Fixed3D;
             Size = size;

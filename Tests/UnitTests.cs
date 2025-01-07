@@ -1,6 +1,5 @@
 using RedBadgerForms;
 using System.Drawing;
-using System.Windows.Forms;
 namespace Tests
 {
     [TestClass]
@@ -21,7 +20,7 @@ namespace Tests
 
                 for (int j = 0; j < y; j++)
                 {
-                    GridElement gridElement = new GridElement(new Point(i, j), new Size(gridElementSize, gridElementSize));
+                    GridElement gridElement = new GridElement(new Size(gridElementSize, gridElementSize));
                     gridElement.Location = new Point(currentXLocaiton, currentYLocaiton);
 
                     gridElements[i, j] = gridElement;
@@ -38,7 +37,7 @@ namespace Tests
             GridElement[,] gridElements = new GridElement[x, y];
             CreateTestGrid(gridElements, x, y);
 
-            gridElements[1, 1] = new GridElement(new Point(0, 0), new Size(new Point(50, 50)));
+            gridElements[1, 1] = new GridElement(new Size(new Point(50, 50)));
 
             Assert.IsNotNull(gridElements[1, 1]);
         }
@@ -75,8 +74,8 @@ namespace Tests
             Grid.SetGridElements(gridElements);
 
             Assert.AreEqual(robot.GetOrientation(), 'N');
+            
             robot.MoveRight();
-
             Assert.AreEqual(robot.GetOrientation(), 'E');
 
             robot.MoveRight();

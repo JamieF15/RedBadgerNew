@@ -86,6 +86,18 @@
             }
         }
 
+        void UpdateRobotOnGrid(Point nextCoordinate)
+        {
+            Grid.GetGridElements()[nextCoordinate.X, nextCoordinate.Y].SetRobotInElement(this);
+            Grid.GetGridElements()[coordinates.X, coordinates.Y].BackgroundImage = null;
+            this.SetCoordinates(nextCoordinate);
+        }
+
+        bool GridElementHasScent()
+        {
+            return Grid.GetGridElements()[coordinates.X, coordinates.Y].GetHasScent();
+        }
+
         public void MoveForward()
         {
             Point nextCoordinate;
@@ -96,64 +108,56 @@
                     nextCoordinate = new Point(coordinates.X + 1, coordinates.Y);
                     if (nextCoordinate.X > Grid.GetGridElements().GetLength(0) - 1)
                     {
-                        if (!Grid.GetGridElements()[coordinates.X, coordinates.Y].GetHasScent())
+                        if (!GridElementHasScent())
                         {
                             ProcessLostRobot(coordinates.X, coordinates.Y);
                             break;
                         }
                         break;
                     }
-                    Grid.GetGridElements()[nextCoordinate.X, nextCoordinate.Y].SetRobotInElement(this);
-                    Grid.GetGridElements()[coordinates.X, coordinates.Y].BackgroundImage = null;
-                    this.SetCoordinates(nextCoordinate);
+                    UpdateRobotOnGrid(nextCoordinate);
                     break;
 
                 case "E":
                     nextCoordinate = new Point(coordinates.X, coordinates.Y + 1);
                     if (nextCoordinate.Y > Grid.GetGridElements().GetLength(1) - 1)
                     {
-                        if (!Grid.GetGridElements()[coordinates.X, coordinates.Y].GetHasScent())
+                        if (!GridElementHasScent())
                         {
                             ProcessLostRobot(coordinates.X, coordinates.Y);
                             break;
                         }
                         break;
                     }
-                    Grid.GetGridElements()[nextCoordinate.X, nextCoordinate.Y].SetRobotInElement(this);
-                    Grid.GetGridElements()[coordinates.X, coordinates.Y].BackgroundImage = null;
-                    this.SetCoordinates(nextCoordinate);
+                    UpdateRobotOnGrid(nextCoordinate);
                     break;
 
                 case "S":
                     nextCoordinate = new Point(coordinates.X - 1, coordinates.Y);
                     if (nextCoordinate.X < 0)
                     {
-                        if (!Grid.GetGridElements()[coordinates.X, coordinates.Y].GetHasScent())
+                        if (!GridElementHasScent())
                         {
                             ProcessLostRobot(coordinates.X, coordinates.Y);
                             break;
                         }
                         break;
                     }
-                    Grid.GetGridElements()[nextCoordinate.X, nextCoordinate.Y].SetRobotInElement(this);
-                    Grid.GetGridElements()[coordinates.X, coordinates.Y].BackgroundImage = null;
-                    this.SetCoordinates(nextCoordinate);
+                    UpdateRobotOnGrid(nextCoordinate);
                     break;
 
                 case "W":
                     nextCoordinate = new Point(coordinates.X, coordinates.Y - 1);
                     if (nextCoordinate.Y < 0)
                     {
-                        if (!Grid.GetGridElements()[coordinates.X, coordinates.Y].GetHasScent())
+                        if (!GridElementHasScent())
                         {
                             ProcessLostRobot(coordinates.X, coordinates.Y);
                             break;
                         }
                         break;
                     }
-                    Grid.GetGridElements()[nextCoordinate.X, nextCoordinate.Y].SetRobotInElement(this);
-                    Grid.GetGridElements()[coordinates.X, coordinates.Y].BackgroundImage = null;
-                    this.SetCoordinates(nextCoordinate);
+                    UpdateRobotOnGrid(nextCoordinate);
                     break;
             }
         }

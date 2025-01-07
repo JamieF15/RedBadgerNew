@@ -1,10 +1,8 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace RedBadgerForms
+﻿namespace RedBadgerForms
 {
     public static class Grid
     {
-        private static GridElement[,] gridElements;
+        private static GridElement[,] gridElements = default!;
 
         public static void Initiate(int x, int y, Form form)
         {
@@ -22,7 +20,7 @@ namespace RedBadgerForms
 
                 for (int j = 0; j < y; j++)
                 {
-                    GridElement gridElement = new GridElement(new Point(i, j), new Size(gridElementSize, gridElementSize));
+                    GridElement gridElement = new GridElement(new Size(gridElementSize, gridElementSize));
                     gridElement.Location = new Point(currentXLocaiton, currentYLocaiton);
 
                     form.Controls.Add(gridElement);

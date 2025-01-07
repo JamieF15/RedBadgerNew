@@ -44,7 +44,6 @@
                 return;
             }
 
-
             finalCoordinates.Text = robot.GetCoordinates().X + ", " + robot.GetCoordinates().Y;
             finalOrientation.Text = robot.GetOrientation().ToString().ToUpper();
         }
